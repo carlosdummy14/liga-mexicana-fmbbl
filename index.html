@@ -804,7 +804,9 @@
 
         return {
 
-            id: team.coach.name || team.id || requestedId,
+            id: team.id || requestedId,
+            
+            coach: team.coach.name || "",
 
             name:
                 team.name ||
@@ -960,11 +962,11 @@
                         <td class="team">
 
                             <div class="team-name">
-                                ${ (index + 1) < 3 ? "<span>⭐</span>":"" }${escapeHtml(team.name)}
+                                ${ (index + 1) < 3 ? "<span>⭐</span>":"" }<a href="https://fumbbl.com/t/${team.id}" target="_blank" rel="noopener noreferrer">${escapeHtml(team.name)}</a>
                             </div>
 
                             <span class="team-id">
-                                #${team.id}
+                                #${team.coach}
                             </span>
 
                         </td>
